@@ -1,0 +1,7 @@
+./prisma/**/*.md
+dist/
+node_modules/
+prisma/migrations/
+src/generated
+*.graphql
+prisma/schema.prisma

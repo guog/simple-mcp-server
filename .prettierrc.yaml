@@ -1,0 +1,20 @@
+#
+# FilePath: /.prettierrc.yaml
+# Project: HolliTrust
+# CreatedAt: 2020-07-06 16:16:26
+# CreatedBy: guog (<guog@live.cn>)
+# Copyright: (c) 2020
+# Task: #1
+# pretteier配置.
+#
+
+printWidth: 80
+tabWidth: 2
+useTabs: false
+semi: false
+singleQuote: true
+trailingComma: 'none'
+bracketSpacing: true
+arrowParens: 'avoid'
+proseWrap: 'preserve'
+endOfLine: 'lf'
