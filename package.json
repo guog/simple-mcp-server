@@ -1,0 +1,26 @@
+{
+  "name": "@guog/simple-mcp-server",
+  "version": "0.1.0",
+  "description": "这是一个示例项目,用极简方式演示如何构建MCP Server。 本例使用高德地图提供的天气预报API以查询天气。",
+  "type": "module",
+  "bin": {
+    "weather": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "packageManager": "pnpm@10.7.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
