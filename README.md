@@ -2,19 +2,26 @@
 
 > 这是一个示例项目,用极简方式演示如何构建MCP Server。
 
-本例使用高德开放平台提供的[天气查询API](https://lbs.amap.com/api/webservice/guide/api/weatherinfo)实现MCP Server，可获取实况和未来天气.
+- 天气查询：使用高德开放平台提供的[天气查询API](https://lbs.amap.com/api/webservice/guide/api/weatherinfo)实现MCP Server，可获取实况和未来天气.
+- 钉钉群消息：使用钉钉群机器人，发送消息到钉钉群。
 
 ## 效果演示
 
 ![Cherry Studio使用](./assets/cherry-studio.jpg)
 
-如上图,其执行逻辑如下：
+如上图：
 
 - 用户问"西安今天用穿棉袄吗"
 - AI自动判断是否要调用天气MCP Server
 - AI按照MCP Server的参数要求，将`西安`的经纬度信息提供给MCP Server
 - MCP Server内部调用了高德提供的天气查询API，并将结果返回给AI
 - AI将天气结果进行汇总整理，输出给用户
+
+与钉钉群消息结合效果如下图：
+
+![问天气,发送到钉钉](./assets/cherry-studio-chat-dingding.png)
+
+![钉钉群消息](./assets/dingding_talk.jpg)
 
 ## 环境准备
 
