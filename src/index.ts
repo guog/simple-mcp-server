@@ -10,6 +10,11 @@ const GAODE_API_BASE = 'https://restapi.amap.com/v3'
 // 高德API密钥
 const GAODE_API_KEY = process.env.GAODE_API_KEY
 
+// 钉钉API的基础URL
+const DINGTALK_API_BASE = 'https://oapi.dingtalk.com'
+// 钉钉群机器人访问令牌
+const DINGTALK_ACCESS_TOKEN = process.env.DINGTALK_ACCESS_TOKEN
+
 // 创建 MCP 服务器实例
 const server = new McpServer({
   name: '@guog/simple-mcp-server', // 服务器名称
@@ -126,6 +131,46 @@ ${cast.date}(周${cast.week})天气
         }
       ]
     }
+  }
+)
+
+server.tool(
+  '发送钉钉群消息',
+  '发送钉钉消息到指定的钉钉群',
+  {
+    message: z.string().describe('Message to send') // 参数验证：消息内容
+  },
+  async ({ message }) => {
+    const url = `${DINGTALK_API_BASE}/robot/send?access_token=${DINGTALK_ACCESS_TOKEN}`
+    const content = `${message} ---天气预报助手`
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+        'Accept': '*/*',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Host': 'oapi.dingtalk.com',
+        'Origin': DINGTALK_API_BASE,
+      },
+      body: JSON.stringify({
+        msgtype: 'text',
+        text: {
+          content
+        }
+      })
+    })
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `钉钉消息发送${response.ok?'成功':'失败'}`
+        }
+      ]
+    }
+
   }
 )
 

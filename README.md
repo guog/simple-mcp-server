@@ -42,6 +42,14 @@ Cherry Studio是一个AI对话客户端，其支持很多个大模型提供商�
 
 从高德开放平台[申请Web API密钥(key)](https://console.amap.com/dev/key/app)。
 
+### 钉钉群API密钥
+
+参见[钉钉开放平台——自定义机器人接入](https://open.dingtalk.com/document/orgapp/custom-robot-access)。
+
+注意: 钉钉的本例中采用`安全设置/自定义关键字`方式，关键字为`天气`，如下图所示：
+
+![添加钉钉群机器人](./assets/dingding_group_bot_add.jpg)
+
 ## 构建
 
 - Clone本项目代码到本地,如`/Users/yourname/simple-mcp-server/`目录；
@@ -64,7 +72,9 @@ Cherry Studio是一个AI对话客户端，其支持很多个大模型提供商�
 - 类型：STDIO
 - 命令：node
 - 参数：刚才构建的执行文件路径,即`/Users/yourname/simple-mcp-server/build/index.js`
-- 环境变量: 高德开放平台申请的Web API密钥 `GAODE_API_KEY=your_api_key`
+- 环境变量:
+  - `GAODE_API_KEY` :高德开放平台申请的Web API **32位**密钥 `GAODE_API_KEY=your_api_key`
+  - `DINGTALK_ACCESS_TOKEN`: 创建钉钉群机器人的Webhook 地址后面的**64位**密钥 `DINGTALK_ACCESS_TOKEN=your_access_token`
 
 ## 使用
 
